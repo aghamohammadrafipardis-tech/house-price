@@ -1,55 +1,82 @@
-💰 Tehran House Price Prediction
-A machine learning project that predicts apartment prices in Tehran using Random Forest Regression.
+# 🏠 Tehran House Price Prediction
 
-✨ Features
-🧹 Data cleaning & outlier removal
+A machine learning project that predicts apartment prices in Tehran using Python, Pandas and Scikit-learn.
 
-🎯 Neighborhood target encoding (mean price per m²)
+## ✨ Features
 
-➕ Engineered feature: total amenities
+- 🧹 Data cleaning (missing values, invalid areas, zero/negative prices)
+- 🏘️ Neighborhood encoding using the average price per square meter
+- 🛠️ Feature engineering (`Total_Amenities` = Parking + Warehouse + Elevator)
+- 🤖 Price prediction with a Random Forest Regressor
+- 📊 Model evaluation (MAE and R²) with visualizations
+- 🌟 Feature importance chart
 
-🌲 Random Forest Regression model
+## 🛠️ Technologies Used
 
-📊 Feature importance & prediction visualizations
+- **Language:** Python
+- **Libraries:** pandas, numpy, scikit-learn, matplotlib, seaborn
+- **Environment:** Jupyter Notebook
+- **Dataset:** CSV file (`1632300362534233.csv`)
 
-🛠️ Technologies Used
-Language: Python
+## 🗂️ Data Format
 
-Libraries: pandas, numpy, scikit-learn, matplotlib, seaborn
+The dataset contains about 3,400 apartment listings with these columns:
 
-Data: CSV file (1632300362534233.csv)
+| Column     | Description                              |
+|------------|------------------------------------------|
+| Area       | Apartment area in square meters          |
+| Room       | Number of rooms                          |
+| Parking    | Has parking (True/False)                 |
+| Warehouse  | Has warehouse/storage (True/False)       |
+| Elevator   | Has elevator (True/False)                |
+| Address    | Neighborhood name                        |
+| Price      | Price in Toman                           |
+| Price(USD) | Price in US dollars                      |
 
-Interface: Jupyter Notebook
+### Sample
 
-🗂️ Data Format
-Stored in 1632300362534233.csv with these columns:
-
-Column	Description
-Area	Property area (m²)
-Room	Number of rooms
-Parking	Parking available (bool)
-Warehouse	Warehouse available (bool)
-Elevator	Elevator available (bool)
-Address	Neighborhood
-Price	Price in IRR
-Price(USD)	Price in USD
-Sample
-csv
+```csv
 Area,Room,Parking,Warehouse,Elevator,Address,Price,Price(USD)
-63,1,True,True,True,Shahran,1850000000,61666.67
-79,2,True,True,True,Pardis,550000000,18333.33
-95,2,True,True,True,Shahrake Qods,902500000,30083.33
-🚀 Usage
-Run the notebook:
+63,1,True,True,True,Shahran,1850000000.0,61666.67
+79,2,True,True,True,Pardis,550000000.0,18333.33
+136,3,True,True,True,Saadat Abad,11000000000.0,366666.67
+```
 
-bash
-jupyter notebook house_price_prediction.ipynb
-📁 Place 1632300362534233.csv in the project root
+## ⚙️ How It Works
 
-▶️ Run all cells sequentially
+1. **Load** the dataset with pandas
+2. **Clean** the data: convert `Area` to numeric, drop rows with missing `Address`/`Area`/`Price`, remove outliers (`Area >= 2000`) and invalid prices
+3. **Encode** `Address` as the mean price per square meter of each neighborhood
+4. **Engineer** the `Total_Amenities` feature
+5. **Split** the data into 80% training and 20% testing
+6. **Scale** `Area` and `Address` with `StandardScaler`
+7. **Train** a `RandomForestRegressor`
+8. **Evaluate** with MAE and R², and plot actual vs. predicted prices
 
-📈 Results
-Metric	Value
-📉 MAE	≈ 1.26 B IRR
-🎯 R²	≈ 0.84
-Top features: 📐 Area (~0.69), 📍 Address (~0.28).
+## 🚀 Getting Started
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/<your-username>/<your-repo>.git
+cd <your-repo>
+
+# 2. Install dependencies
+pip install pandas numpy scikit-learn matplotlib seaborn jupyter
+
+# 3. Run the notebook
+jupyter notebook
+```
+
+## 📈 Results
+
+| Metric | Value |
+|--------|-------|
+| MAE    | _your value_ |
+| R²     | _your value_ |
+
+## 🔮 Future Improvements
+
+- Try other models (XGBoost, Gradient Boosting)
+- Hyperparameter tuning with GridSearchCV
+- Add cross-validation
+- Build a simple web app for live price prediction
