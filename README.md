@@ -20,7 +20,7 @@ A machine learning project that predicts apartment prices in Tehran using Python
 
 ## 🗂️ Data Format
 
-The dataset contains about 3,400 apartment listings with these columns:
+The dataset contains about 3,450 apartment listings (after cleaning) with these columns:
 
 | Column     | Description                              |
 |------------|------------------------------------------|
@@ -71,8 +71,8 @@ jupyter notebook
 
 | Metric | Value |
 |--------|-------|
-| MAE    | _your value_ |
-| R²     | _your value_ |
+| MAE    | ≈ 1.26 billion Toman (≈ 1,260,879,471) |
+| R²     | ≈ 0.84 |
 
 ## 🔮 Future Improvements
 
