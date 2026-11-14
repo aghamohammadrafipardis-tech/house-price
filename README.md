@@ -53,19 +53,6 @@ Area,Room,Parking,Warehouse,Elevator,Address,Price,Price(USD)
 7. **Train** a `RandomForestRegressor`
 8. **Evaluate** with MAE and R², and plot actual vs. predicted prices
 
-## 🚀 Getting Started
-
-```bash
-# 1. Clone the repository
-git clone https://github.com/<your-username>/<your-repo>.git
-cd <your-repo>
-
-# 2. Install dependencies
-pip install pandas numpy scikit-learn matplotlib seaborn jupyter
-
-# 3. Run the notebook
-jupyter notebook
-```
 
 ## 📈 Results
 
